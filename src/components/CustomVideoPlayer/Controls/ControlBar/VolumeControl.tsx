@@ -32,23 +32,25 @@ const VolumeSlider = styled.input`
 
   &::-webkit-slider-runnable-track {
     height: ${rem("6px")};
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: #fff;
     border-radius: 16px;
     opacity: 0.9;
     &:hover {
       opacity: 1;
     }
   }
+
   &::-webkit-slider-thumb {
     appearance: none;
     height: 6px;
     width: 1px;
-    background-color: #f00;
-    box-shadow: -100px 0 0 100px #f00;
+    background-color: #fff;
+    box-shadow: -100px 0 0 100px #ff9800;
     &:hover {
       transform: scale(1.2);
     }
   }
+
   &:focus {
     outline: none;
   }

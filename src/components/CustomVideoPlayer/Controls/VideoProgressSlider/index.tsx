@@ -8,24 +8,29 @@ const ProgressSlider = styled.input<{ $progress: number }>`
   appearance: none;
   outline: none;
   width: calc(100% - ${rem(16)});
-  height: ${rem(10)};
+  height: ${rem(4)};
   border-radius: 2px;
   margin: 0;
   background: linear-gradient(
     to right,
-    #f00 ${({ $progress }) => $progress}%,
+    #ff9800 ${({ $progress }) => $progress}%,
     rgba(255, 255, 255, 0.4) ${({ $progress }) => $progress}%
   );
+  &:hover {
+    transform: translateY(-50%);
+    width: calc(100% - ${rem(16)});
+    height: ${rem(8)}; // the height is increased on hover
+  }
 
   &::-webkit-slider-thumb {
     height: ${rem(16)};
     width: ${rem(16)};
-    background-color: #fff;
+    background-color: #ff9800;
     border-radius: 50%;
-    border: ${rem(2)} solid #f00;
+    border: ${rem(2)} solid #ff9800;
     appearance: none;
     &:hover {
-      transform: scale(1.5);
+      transform: scale(1.2);
     }
   }
 `;

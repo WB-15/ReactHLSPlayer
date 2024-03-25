@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Icon } from "@components/ui";
 import { rem, secToTimeString } from "@utils";
+import HandleNextVideo from "./NextVideo";
 import VolumeControl from "./VolumeControl";
 import useVideoPlayerStore from "@store/video-player-store";
 
 const ControlBarWrapper = styled.div`
-  margin: ${rem("16px")} ${rem("24px")};
-  span > svg {
-    margin-right: ${rem("16px")};
-  }
+  display: flex;
+  gap: 10px;
+  margin: ${rem("24px")} ${rem("34px")};
 `;
 
 const TimeSpan = styled.span`
@@ -41,8 +41,13 @@ const ControlBar = () => {
           onClick={pauseToggler}
         />
       )}
+      <HandleNextVideo
+        url={"https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8"} //testing sample url
+      />
       <VolumeControl />
-      <TimeSpan>{secToTimeString(progress)}</TimeSpan>
+      <TimeSpan style={{ marginLeft: rem("5px") }}>
+        {secToTimeString(progress)}
+      </TimeSpan>
       <TimeSpan>&nbsp;/&nbsp;</TimeSpan>
       <TimeSpan>{secToTimeString(duration)}</TimeSpan>
     </ControlBarWrapper>

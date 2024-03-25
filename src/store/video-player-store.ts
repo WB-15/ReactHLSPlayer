@@ -11,6 +11,7 @@ interface State {
   posterSrc: string;
   sources: Array<string>;
   isPlaying: boolean;
+  isExpanded: boolean;
   progress: number;
   duration: number;
   hlsInstance: Hls | object;
@@ -26,6 +27,7 @@ interface Actions {
   pauseToggler: () => void;
   setHlsInstance: (hlsInstance: Hls) => void;
   addNewSource: (src: string) => void;
+  handleExpand: (value: boolean) => void;
 }
 
 const useVideoPlayerStore = create<State & Actions>((set) => ({
@@ -37,6 +39,7 @@ const useVideoPlayerStore = create<State & Actions>((set) => ({
   posterSrc: DEFAULT_POSTER_LINK,
   sources: [],
   isPlaying: false,
+  isExpanded: false,
   isLoading: false,
   progress: 0,
   duration: 0,
@@ -69,6 +72,7 @@ const useVideoPlayerStore = create<State & Actions>((set) => ({
       return { isPlaying: !state.isPlaying };
     }),
   setHlsInstance: (hlsInstance) => set({ hlsInstance }),
+  handleExpand: (value) => set({ isExpanded: !value }),
   addNewSource: (src) =>
     set((state) => {
       const sources = state.sources;

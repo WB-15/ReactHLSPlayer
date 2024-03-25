@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { CustomVideoPlayer } from "@components";
-import { Flex, Heading, Link } from "@components/ui";
+import { Flex } from "@components/ui";
 import { getVideoSourcesApi } from "@api/videos";
 import CustomDataForm from "@components/CustomDataForm";
 
@@ -17,17 +17,8 @@ const Home = () => {
 
   return (
     <Flex $direction="column">
-      <Heading tag="h2">
-        <Link href={"https://github.com/filoscoder/react-hls-video-player"}>
-          React HLS Video Player
-        </Link>
-      </Heading>
       <CustomVideoPlayer data={data} />
       <CustomDataForm />
-      <Heading tag="h4">
-        Made with ❤️ by{" "}
-        <Link href="https://github.com/filoscoder">filoscoder</Link>
-      </Heading>
     </Flex>
   );
 };

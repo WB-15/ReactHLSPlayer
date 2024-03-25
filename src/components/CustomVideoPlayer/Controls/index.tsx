@@ -11,11 +11,7 @@ const ControlsContainer = styled(Flex)`
   position: absolute;
   bottom: 0;
   left: 0;
-  background-color: #000;
   visibility: hidden;
-  transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);
-  transition: height 0.1s cubic-bezier(0.4, 0, 1, 1);
-
   svg,
   input[type="range"] {
     opacity: 0.9;

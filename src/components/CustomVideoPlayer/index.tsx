@@ -4,9 +4,14 @@ import HlsPlayer from "./HlsPlayer";
 import styled from "styled-components";
 import useVideoPlayerStore from "@store/video-player-store";
 
-const VideoPlayerContainer = styled.div`
+interface VideoPlayerContainerProps {
+  isExpanded: boolean;
+}
+
+const VideoPlayerContainer = styled.div<VideoPlayerContainerProps>`
   position: relative;
-  width: 98%;
+  top: 30px;
+  width: ${(props) => (props.isExpanded ? "100%" : "70%")};
   max-width: 100%;
   background-color: #000;
   display: flex;
@@ -43,7 +48,7 @@ interface CustomVideoPlayerProps {
 }
 
 const CustomVideoPlayer = ({ data }: CustomVideoPlayerProps) => {
-  const { playerContainerRef, setSources, playingTitle } =
+  const { playerContainerRef, setSources, playingTitle, isExpanded } =
     useVideoPlayerStore();
 
   useEffect(() => {
@@ -51,7 +56,7 @@ const CustomVideoPlayer = ({ data }: CustomVideoPlayerProps) => {
   }, [data, setSources]);
 
   return (
-    <VideoPlayerContainer ref={playerContainerRef}>
+    <VideoPlayerContainer ref={playerContainerRef} isExpanded={isExpanded}>
       <TitleSpan id="playing-title">{playingTitle}</TitleSpan>
       <HlsPlayer />
       <Controls />

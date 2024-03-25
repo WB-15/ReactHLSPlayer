@@ -87,7 +87,6 @@ const HlsPlayer = () => {
         newHls.attachMedia(playerRef.current);
       }
 
-      // Event Docs: https://github.com/video-dev/hls.js/blob/v1.4.7/docs/API.md#runtime-events
       newHls.on(Hls.Events.MEDIA_ATTACHED, () => {
         newHls.loadSource(playingSrc);
 

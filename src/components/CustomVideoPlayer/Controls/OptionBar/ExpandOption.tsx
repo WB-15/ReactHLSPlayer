@@ -1,18 +1,31 @@
-import { Icon } from "@components/ui";
-import useFullscreen from "@hooks/use-fullscreen";
 import useVideoPlayerStore from "@store/video-player-store";
-
+import WidthFullIcon from "@mui/icons-material/WidthFull";
+import WidthNormalIcon from "@mui/icons-material/WidthNormal";
 const ExpandOption = () => {
-  const { playerContainerRef } = useVideoPlayerStore();
-  const [isFullscreen, setFullscreen] = useFullscreen(playerContainerRef);
+  const { handleExpand, isExpanded } = useVideoPlayerStore();
 
   return (
-    <Icon
-      title="fullscreen"
-      name={isFullscreen ? "compress" : "expand"}
-      // @ts-ignore
-      onClick={setFullscreen}
-    />
+    <>
+      {isExpanded ? (
+        <>
+          <WidthNormalIcon
+            style={{ color: "white" }}
+            onClick={() => {
+              handleExpand(isExpanded);
+            }}
+          />
+        </>
+      ) : (
+        <>
+          <WidthFullIcon
+            style={{ color: "white" }}
+            onClick={() => {
+              handleExpand(isExpanded);
+            }}
+          />
+        </>
+      )}
+    </>
   );
 };
 

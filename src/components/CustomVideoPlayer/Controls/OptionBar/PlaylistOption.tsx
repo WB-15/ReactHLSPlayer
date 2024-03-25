@@ -7,7 +7,7 @@ import { styled } from "styled-components";
 const PlaylistOptionContainer = styled.div``;
 const PlaylistWindow = styled.ul`
   position: absolute;
-  right: ${rem("8px")};
+  right: 60px;
   bottom: calc(65px + ${rem("8px")});
   min-width: 200px;
   max-height: 300px;
@@ -55,7 +55,9 @@ const PlaylistOption = () => {
               <PlaylistTrack
                 key={`${idx}_source`}
                 title={source}
-                onClick={() => setPlayingSrc(source)}
+                onClick={() => {
+                  setPlayingSrc(source);
+                }}
               >
                 {filename}
                 {source === playingSrc && <Icon name={"check"} size={"16px"} />}
